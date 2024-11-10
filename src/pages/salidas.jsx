@@ -8,8 +8,7 @@ const Salidas = () => {
   const [solicitudesFiltradas, setSolicitudesFiltradas] = useState(initialSolicitudes);
   const [paginaActual, setPaginaActual] = useState(1);
   const [showModal, setShowModal] = useState(false);
-  const [solicitudSeleccionada, setSolicitudSeleccionada] = useState(null); // Estado para la solicitud seleccionada
-
+  const [solicitudSeleccionada, setSolicitudSeleccionada] = useState(null);
   const solicitudesPorPagina = 10;
   const indiceUltimoSolicitud = paginaActual * solicitudesPorPagina;
   const indicePrimerSolicitud = indiceUltimoSolicitud - solicitudesPorPagina;
@@ -100,7 +99,7 @@ const Salidas = () => {
               <td>{solicitud.estatus}</td>
               <td>
                 <Button 
-                  variant="primary" 
+                  style={{ backgroundColor: '#FFC107', borderColor: '#FFC107' }} 
                   onClick={() => cambiarEstatus(index)}
                 >
                   Valorar
@@ -108,8 +107,8 @@ const Salidas = () => {
               </td>
               <td>
                 <Button 
-                  variant="info" 
-                  onClick={() => handleShowModal(solicitud)} // Abrir el modal con la solicitud seleccionada
+                  style={{ backgroundColor: '#7F6DF2', borderColor: '#7F6DF2' }}
+                  onClick={() => handleShowModal(solicitud)}
                 >
                   Ver Detalles
                 </Button>

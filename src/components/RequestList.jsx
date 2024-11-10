@@ -46,16 +46,12 @@ const Principal = () => {
               <td>{solicitud.tipo}</td>
               <td>{solicitud.estatus}</td>
               <td>
-                <span
-                  style={{
-                    color: 'blue',
-                    cursor: 'pointer',
-                    textDecoration: 'underline'
-                  }}
+                <Button 
+                  style={{ backgroundColor: '#7F6DF2', borderColor: '#7F6DF2' }}
                   onClick={() => handleShowDetails(solicitud)}
                 >
                   Ver Detalles
-                </span>
+                </Button>
               </td>
             </tr>
           ))}

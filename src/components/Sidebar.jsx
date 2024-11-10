@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar as BootstrapNavbar, Offcanvas, Nav, Button } from 'react-bootstrap';
+import { FaHome, FaSignOutAlt, FaFileAlt, FaInfoCircle, FaListAlt } from 'react-icons/fa';
 
 const SideNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false); // Estado para gestionar el hover
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -22,12 +23,12 @@ const SideNavbar = () => {
             onClick={toggleSidebar}
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
-            onMouseEnter={() => setIsHovered(true)}  // Detecta cuando el cursor está encima
-            onMouseLeave={() => setIsHovered(false)} // Detecta cuando el cursor sale
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
             style={{
-              backgroundColor: isHovered ? '#b0afae' : '#fff', // Cambia el fondo al pasar el cursor
+              backgroundColor: isHovered ? '#b0afae' : '#fff',
               border: '#555',
-              color: '#b0afae', // Color del texto e icono en blanco
+              color: '#b0afae',
             }}
           >
             <span className="navbar-toggler-icon" style={{ filter: 'invert(20%)' }}></span>
@@ -39,7 +40,7 @@ const SideNavbar = () => {
               src="/public/img/Perfil.jpg"
               alt="User Photo"
               className="navbar-user-photo rounded-circle"
-              style={{ width: '40px', height: '40px' }} // Estilo opcional para la imagen
+              style={{ width: '40px', height: '40px' }}
             />
           </div>
 
@@ -47,7 +48,7 @@ const SideNavbar = () => {
           <Offcanvas
             show={isOpen}
             onHide={toggleSidebar}
-            placement="start" // Sidebar aparece desde el lado izquierdo
+            placement="start"
             style={{ backgroundColor: '#7F6DF2' }}
           >
             <Offcanvas.Header closeButton style={{ color: '#FFFFFF' }}>
@@ -56,22 +57,34 @@ const SideNavbar = () => {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3" style={{ color: '#FFFFFF' }}>
                 <Nav.Item>
-                  <Link to="/home" className="nav-link">Inicio</Link>
+                  <Link to="/home" className="nav-link d-flex align-items-center">
+                    <FaHome className="me-2" /> Inicio
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="/salidas" className="nav-link">Salidas</Link>
+                  <Link to="/salidas" className="nav-link d-flex align-items-center">
+                    <FaListAlt className="me-2" /> Salidas
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="/documentos" className="nav-link">Documentos</Link>
+                  <Link to="/documentos" className="nav-link d-flex align-items-center">
+                    <FaFileAlt className="me-2" /> Documentos
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="/RequestList" className="nav-link">Solicitudes</Link>
+                  <Link to="/RequestList" className="nav-link d-flex align-items-center">
+                    <FaListAlt className="me-2" /> Solicitudes
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="/acerca" className="nav-link">Acerca</Link>
+                  <Link to="/acerca" className="nav-link d-flex align-items-center">
+                    <FaInfoCircle className="me-2" /> Acerca
+                  </Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Link to="#" className="nav-link">Salir</Link>
+                  <Link to="#" className="nav-link d-flex align-items-center">
+                    <FaSignOutAlt className="me-2" /> Salir
+                  </Link>
                 </Nav.Item>
               </Nav>
             </Offcanvas.Body>

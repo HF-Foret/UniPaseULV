@@ -5,7 +5,7 @@ import { Buscador } from '../components/Buscador';
 
 const Documentos = () => {
   const [valorInput, setValorInput] = useState('');
-  const [solicitudesFiltradas, setSolicitudesFiltradas] = useState(solicitudes);  // Estado para las solicitudes filtradas
+  const [solicitudesFiltradas, setSolicitudesFiltradas] = useState(solicitudes);
   const [paginaActual, setPaginaActual] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [solicitudSeleccionada, setSolicitudSeleccionada] = useState(null);
@@ -17,12 +17,11 @@ const Documentos = () => {
   const solicitudesActuales = solicitudesFiltradas.slice(indicePrimerSolicitud, indiceUltimoSolicitud);
 
   const onChange = (evento) => {
-    setValorInput(evento.target.value);  // Actualizar el valor del input al escribir
+    setValorInput(evento.target.value);
   };
 
   const onSubmit = (evento) => {
-    evento.preventDefault();  // Evitar el comportamiento por defecto del formulario
-    // Filtrar solicitudes por nombre, tipo, estatus o documentos
+    evento.preventDefault();
     const resultadosFiltrados = solicitudes.filter((solicitud) => {
       const nombre = solicitud.nombre.toLowerCase();
       const tipo = solicitud.tipo.toLowerCase();
@@ -38,8 +37,8 @@ const Documentos = () => {
         documentos.includes(busqueda)
       );
     });
-    setSolicitudesFiltradas(resultadosFiltrados);  // Actualizar el estado con los resultados filtrados
-    setPaginaActual(1);  // Reiniciar a la primera página
+    setSolicitudesFiltradas(resultadosFiltrados);
+    setPaginaActual(1);
   };
 
   const paginar = (numeroPagina) => setPaginaActual(numeroPagina);
@@ -89,16 +88,12 @@ const Documentos = () => {
               <td>{solicitud.tipo}</td>
               <td>{solicitud.estatus}</td>
               <td>
-                <span
-                  style={{
-                    color: 'blue',
-                    cursor: 'pointer',
-                    textDecoration: 'underline'
-                  }}
+                <Button
+                  style={{ backgroundColor: '#7F6DF2', borderColor: '#7F6DF2' }}
                   onClick={() => handleShowDetails(solicitud)}
                 >
                   Ver Detalles
-                </span>
+                </Button>
               </td>
             </tr>
           ))}
